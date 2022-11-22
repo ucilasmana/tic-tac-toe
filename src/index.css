@@ -1,13 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Nunito:wght@700;800;900&display=swap');
+
+html{
+  scroll-behavior: smooth;
+  --font-mochi:'Mochiy Pop One', sans-serif;
+  --font-nunito: 'Nunito', sans-serif;
+  --yellow-color:#f5d001;
+  --red-color:#df391f;
+  --light-blue-color:#a6d8e2;
+  --dark-blue-color:rgb(0,110, 255);
+  --light-btn-back:rgb(228, 253, 246);
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background-color: var(--light-blue-color);
+  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+::-webkit-scrollbar{
+  display: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  user-select: none;
+  -webkit-user-select: none;
 }

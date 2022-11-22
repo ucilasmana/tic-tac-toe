@@ -1,0 +1,111 @@
+.board-square{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+}
+.box{
+    font-size: 6em;
+    background-color: rgb(241, 241, 241);
+    border: 1px solid white;
+    box-shadow:0px 0px 2px rgba(204, 204, 204, 0.644);
+    border-radius: 10%;
+    width: 8.5rem;
+    height: 8.5rem;
+    text-align: center;
+    font-weight: 900;
+    line-height: 0;
+    font-family: var(--font-mochi)
+}
+.x {
+    background-color: var(--yellow-color);
+    color:white;
+}
+.o{
+    background-color:var(--red-color) ;
+    color:white;
+}
+.default{
+    background-color: rgba(255, 255, 255, 0.301);
+}
+.box:hover{
+    box-shadow:0px 0px 15px #888;
+}
+.board-action{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.board-action button{  
+    margin: 20px 0;
+    width: 8.5rem;
+    border-radius: 10px;
+    color:white;
+    font-size: 1.1rem;
+    padding: 0.5rem ;
+    font-family:var(--font-nunito);
+    box-shadow:0px 0px 5px rgba(9, 20, 71, 0.301);
+}
+.board-action .reset-btn{
+    background-color: var(--dark-blue-color);
+}
+.board-action .prev-btn{
+    background-color: rgb(2, 150, 69); 
+}
+
+.board-action .reset-btn:hover{
+    color: rgb(0, 95, 173); 
+    background-color: var(--light-btn-back)
+}
+.board-action .prev-btn:hover{
+    color: rgb(0, 136, 91); 
+    background-color: var(--light-btn-back)  
+}
+
+@media screen and (max-width: 900px) {
+    
+    .board-action button{  
+        margin: 50px 0;
+    }
+    
+}
+@media screen and (max-width: 600px) {
+    .box{
+        width: 7.5rem;
+        height: 7.5rem;
+    }
+}
+@media screen and (max-width: 500px) {
+    .box{
+        font-size: 5.5em;
+        width: 6rem;
+        height: 6rem;
+    }
+    .board-square{
+        gap: 6px;
+    }
+      .board-action{
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        margin-top:30px;
+    }
+    .board-action button{  
+        margin: 15px 0 0 0 ;
+        width: 7rem;
+        font-size: 0.8rem;
+    }
+}
+@media screen and (max-width: 420px) {
+    .box{
+        font-size: 3.5em;
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+}
+@media screen and (max-width: 320px) {
+    .box{
+        font-size: 2.5em;
+        width: 4rem;
+        height: 4rem;
+    }    
+}
