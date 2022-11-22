@@ -62,24 +62,17 @@
 }
 
 @media screen and (max-width: 900px) {
-    
     .board-action button{  
-        margin: 50px 0;
+        margin: 40px 0;
     }
-    
-}
-@media screen and (max-width: 600px) {
     .box{
-        width: 7.5rem;
-        height: 7.5rem;
-    }
-}
-@media screen and (max-width: 500px) {
-    .box{
-        font-size: 5.5em;
+        font-size: 4.5em;
         width: 6rem;
         height: 6rem;
     }
+}
+
+@media screen and (max-width: 500px) {
     .board-square{
         gap: 6px;
     }

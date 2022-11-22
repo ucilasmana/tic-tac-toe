@@ -57,34 +57,26 @@
     }
 }
 @media screen and (max-width: 900px) {
-    .scoreboard{
-       margin:15% 0 20% 0;
-    }
     .player {
         display: flex;
         
     }
-    .player h3{
-        padding: 20px;
-    }
-    
-    .player-score{
-        padding: 12px 20px 12px 20px;
-    }
-}
-@media screen and (max-width: 500px) {
     .scoreboard{
-       margin:0 0 20% 0;
-    }
+        margin:10% 0 20% 0;
+     }
     .player h3{
         padding: 10px;
         font-size: 1em;
     }
     .player-score{
-        font-size: 1.6em;
         padding: 10px 18px 10px 18px;
+        font-size: 1.6em;
     }
-    
+}
+@media screen and (max-width: 500px) {
+    .scoreboard{
+       margin:0 0 20% 0;
+    }    
 }
 @media screen and (max-width: 430px) {
     .player div{   
