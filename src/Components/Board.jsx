@@ -84,9 +84,6 @@ const Board = () => {
     }
   }
 
-
-
-  
   const handlePrevClick=()=>{
    for(let i = 0; i<history.length; i++){
       for(let j = 0; j<9; j++){
