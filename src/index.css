@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Nunito:wght@700;800;900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Nunito:wght@700;800;900;1000&display=swap');
 html{
   scroll-behavior: smooth;
   --font-mochi:'Mochiy Pop One', sans-serif;
   --font-nunito: 'Nunito', sans-serif;
+  --default-color:rgba(255, 255, 255, 0.301);
   --yellow-color:#f5d001;
   --red-color:#df391f;
   --light-blue-color:#a6d8e2;
@@ -19,9 +19,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-::-webkit-scrollbar{
-  display: none;
-}
 
 button {
   cursor: pointer;

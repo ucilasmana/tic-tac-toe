@@ -1,56 +1,82 @@
-import React, {useState, useEffect, useRef} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import "./Board.css"
 import ScoreBoard from './ScoreBoard';
 
 const Board = () => {
 
   const board = useRef(Array(9).fill(null))
-  const [history, setHistory]=useState([]);
-  const [gameOver, setGameOver]=useState(false)
-  const [sameIndex, setSameIndex]=useState(false)
   const [player, setPlayer] = useState(true);
+  const [gameOver, setGameOver]=useState(false)
   const [scores, setScores] = useState({xScore:0, oScore:0})
 
-  const WIN_CONDITIONS = [
-    [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
-  ]
+  const [history, setHistory]=useState([]);
+  const [sameIndex, setSameIndex]=useState(false)
 
+  const WIN_CONDITIONS = useRef([
+    [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
+  ])
+
+  //Modal
+  const modal = useRef(null)
+  const [messages, setMessages] = useState(null)
+  
+
+ 
   useEffect(() => {
 
-      if(sameIndex)
-      {
-      setHistory(history)
-      board.current=board.current
-      setSameIndex(!sameIndex)
-      }
-      if(gameOver)
-      {
-        board.current=Array(9).fill(null)
-        setHistory([])
-        setSameIndex(false)
-        setGameOver(!gameOver)
-      }
+    if(sameIndex)
+    {
+    setHistory(history=>history)
+    setSameIndex(!sameIndex)
+    }
+
+    if(gameOver)
+    {
+      board.current=Array(9).fill(null)
+      setGameOver(!gameOver)
+    }
+
+}, [sameIndex, gameOver]);
+
+
+const checkWinner = (board) =>{
+   
+  for (let i = 0; i<WIN_CONDITIONS.current.length; i++)
+  {
+    const[x, y, z] =  WIN_CONDITIONS.current[i]
+   
+    if(board[x]&&board[x] === board[y] && board[y] === board[z])
+    {
+        return board[x];   
+    }
+  }
  
-  }, [sameIndex, gameOver]);
+}
 
   const handleBoxClick = (boxIndex) =>  {
     
-    board.current=board.current.map((value, index) => {
 
-      if(index===boxIndex)
+      if(player === true)
       {
-        return player === true ? "X" : "O"
+        board.current[boxIndex]= "X" 
       }
       else{
-        return value;
+        board.current[boxIndex]="O"
       }
-    })
+
     setHistory([boxIndex, ...history])
     setPlayer(!player)
 
+    if(!board.current.includes(null))
+    {
+      modal.current.style.setProperty("display", "block")
+      setMessages("Tie!")
+    }
+
     const winner = checkWinner(board.current);
-  
+   
     if(winner){
+      
       if(winner === "O"){
         let {oScore} = scores;
         oScore +=1 
@@ -63,53 +89,35 @@ const Board = () => {
         setScores({
           ...scores, xScore}) 
       }
+    
+      modal.current.style.setProperty("display", "block")
+      setMessages("Player "+winner+" Wins!") 
+     
     }   
-  }
-
-  const checkWinner = (board) =>{
-   
-    for (let i = 0; i<WIN_CONDITIONS.length; i++)
-    {
-      const[x, y, z] =  WIN_CONDITIONS[i]
-      
-      if(board[x] && board[x] === board[y] && board[y] === board[z])
-      {
-        reset("Player " + board[x] + " Won!")
-        return board[x];   
-      }
-    }
-    if(!board.includes(null))
-    {
-      reset("Tie!")
-    }
+  
   }
 
   const handlePrevClick=()=>{
-   for(let i = 0; i<history.length; i++){
-      for(let j = 0; j<9; j++){
-        if(history[i]===j)
-        {
-          history.splice(0, 1);
-          board.current.splice(j, 1, null);
-          setSameIndex(!sameIndex)
-          return
-        }
+    for(let indexBoard = 0; indexBoard<9; indexBoard++){
+      if(history[0]===indexBoard)
+      {
+        setSameIndex(!sameIndex)
+        history.splice(0, 1);
+        board.current.splice(indexBoard, 1, null);
+        return
       }
     }
-  
-  }
-  const reset = (stringValue) => {
-    if(stringValue!==null)
-    {
-      alert(stringValue)
-    }
-    setGameOver(!gameOver)    
-  }
+   }
+
+  const closeModal = () => {
+    modal.current.style.setProperty("display", "none")
+    setGameOver(!gameOver)
+   }
 
   return (
     <>
-    <div className="score">
-        <ScoreBoard scores={scores} player={player}/>
+   <div className="score">
+        <ScoreBoard scores={scores}/>
     </div>
     <div className='board'>
       <div className='board-square'>
@@ -122,8 +130,15 @@ const Board = () => {
       </div>
       <div className="board-action">
             <button className='prev-btn' onClick= {() => handlePrevClick()}>Previous Step</button>
-            <button className="reset-btn" onClick={()=>reset(null)}>Reset Board</button>
+            <button className="reset-btn" onClick={()=> setGameOver(!gameOver) }>Reset Board</button>
       </div>
+      </div>
+      <div ref={modal} className='modal'>
+        <div className='container'>
+          <h1>{messages}</h1>
+          <br/>
+          <button onClick={()=>closeModal()}>close</button>
+        </div> 
       </div>
     </>
   )

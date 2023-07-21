@@ -3,10 +3,10 @@
     grid-template-columns: auto auto auto;
     gap: 10px;
 }
+
 .box{
     font-size: 6em;
-    background-color: rgb(241, 241, 241);
-    border: 1px solid white;
+    border: 1px solid rgba(245, 245, 245, 0.89);
     box-shadow:0px 0px 2px rgba(204, 204, 204, 0.644);
     border-radius: 10%;
     width: 8.5rem;
@@ -14,18 +14,19 @@
     text-align: center;
     font-weight: 900;
     line-height: 0;
-    font-family: var(--font-mochi)
+    font-family: var(--font-mochi);
+    color:white;
 }
 .x {
-    background-color: var(--yellow-color);
-    color:white;
+    background-color:var(--red-color) 
+   
 }
 .o{
-    background-color:var(--red-color) ;
-    color:white;
+  
+    background-color:var(--yellow-color) ;
 }
 .default{
-    background-color: rgba(255, 255, 255, 0.301);
+    background-color: var(--default-color);
 }
 .box:hover{
     box-shadow:0px 0px 15px #888;
@@ -60,7 +61,44 @@
     color: rgb(0, 136, 91); 
     background-color: var(--light-btn-back)  
 }
+.modal{
+    display: none;
+    position: absolute;
+    color: var(--yellow-color);
+    font-family: var(--font-mochi);
+    text-align: center;
+    font-size: 2.5em;
 
+    z-index: 10;
+    background-color: rgba(225, 240, 255, 0.89);
+    height: 100%;
+    width: 100%;
+}
+.modal .container{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  color:rgb(4, 56, 124)
+}
+.modal button{
+    font-family: var(--font-nunito);
+    background-color:rgba(255, 255, 255, 0.966);
+    border: 1px solid rgb(196, 196, 196);
+    color:rgb(122, 122, 122) ;
+    font-weight: 700;
+font-size: 0.4em;
+box-shadow:0px 0px 5px rgba(88, 88, 88, 0.178);
+
+   height: 30px;
+
+    border-radius: 10px;
+    
+  }
+  .modal button:hover{
+    background-color:rgb(4, 56, 124) ;
+    color: rgba(255, 255, 255, 0.966);
+  }
 @media screen and (max-width: 900px) {
     .board-action button{  
         margin: 40px 0;
