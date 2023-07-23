@@ -5,6 +5,9 @@ import ScoreBoard from './ScoreBoard';
 const Board = () => {
 
   const board = useRef(Array(9).fill(null))
+
+  //const [board, setBoard] = useState(Array(9).fill(null))
+
   const [player, setPlayer] = useState(true);
   const [gameOver, setGameOver]=useState(false)
   const [scores, setScores] = useState({xScore:0, oScore:0})
@@ -20,7 +23,6 @@ const Board = () => {
   const modal = useRef(null)
   const [messages, setMessages] = useState(null)
   
-
  
   useEffect(() => {
 
@@ -33,6 +35,7 @@ const Board = () => {
     if(gameOver)
     {
       board.current=Array(9).fill(null)
+      setHistory([])
       setGameOver(!gameOver)
     }
 
@@ -54,9 +57,27 @@ const checkWinner = (board) =>{
 }
 
   const handleBoxClick = (boxIndex) =>  {
-    
 
-      if(player === true)
+    
+  /*  setBoard(board.map((value, index) =>
+    {
+      if(index===boxIndex)
+      {
+         if(player)
+         {
+          return "X" 
+         }
+        else{
+          return "O"
+        }
+      }
+      else{
+        return value
+      }
+    }))
+    */
+
+      if(player)
       {
         board.current[boxIndex]= "X" 
       }
