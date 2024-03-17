@@ -14,10 +14,10 @@
     border-radius: 15px 25px 25px 15px;
     }
 .x-score {
-    background-color: var(--yellow-color);
+    background-color: var(--red-color);
 }
 .o-score {
-    background-color: var(--red-color);
+    background-color: var(--yellow-color);
 }
 
 .player h3{
@@ -37,10 +37,10 @@
     
 }
 .player-score._x {
-    color: var(--yellow-color);
+    color: var(--red-color);
 }
 .player-score._o{
-    color: var(--red-color);
+    color: var(--yellow-color);
 }
 
 @media screen and (min-width: 900px) {

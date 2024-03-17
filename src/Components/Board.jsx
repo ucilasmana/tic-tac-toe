@@ -42,6 +42,7 @@ const Board = () => {
 }, [sameIndex, gameOver]);
 
 
+
 const checkWinner = (board) =>{
    
   for (let i = 0; i<WIN_CONDITIONS.current.length; i++)
@@ -58,7 +59,6 @@ const checkWinner = (board) =>{
 
   const handleBoxClick = (boxIndex) =>  {
 
-    
   /*  setBoard(board.map((value, index) =>
     {
       if(index===boxIndex)
