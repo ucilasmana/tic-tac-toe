@@ -68,7 +68,6 @@
     font-family: var(--font-mochi);
     text-align: center;
     font-size: 2.5em;
-
     z-index: 10;
     background-color: rgba(225, 240, 255, 0.89);
     height: 100%;
@@ -87,11 +86,9 @@
     border: 1px solid rgb(196, 196, 196);
     color:rgb(122, 122, 122) ;
     font-weight: 700;
-font-size: 0.4em;
-box-shadow:0px 0px 5px rgba(88, 88, 88, 0.178);
-
-   height: 30px;
-
+    font-size: 0.4em;
+    box-shadow:0px 0px 5px rgba(88, 88, 88, 0.178);
+    height: 30px;
     border-radius: 10px;
     
   }
@@ -124,6 +121,9 @@ box-shadow:0px 0px 5px rgba(88, 88, 88, 0.178);
         margin: 15px 0 0 0 ;
         width: 7rem;
         font-size: 0.8rem;
+    }
+    .modal{
+        font-size: 2em;
     }
 }
 @media screen and (max-width: 420px) {
