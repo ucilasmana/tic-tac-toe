@@ -136,7 +136,7 @@ const checkWinner = (board) =>{
    }
 
   return (
-    <>
+   <div className='main'>
    <div className="score">
         <ScoreBoard scores={scores}/>
     </div>
@@ -161,7 +161,7 @@ const checkWinner = (board) =>{
           <button onClick={()=>closeModal()}>close</button>
         </div> 
       </div>
-    </>
+    </div>
   )
 }
 
